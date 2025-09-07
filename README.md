@@ -16,7 +16,7 @@ TryOn is a Chrome Extension and backend service that allows users to upload a pe
 │   ├── index.js        # Express.js backend
 │   ├── package.json    # Node dependencies
 │   └── ...             # Other server files
-|   tryon-extension/
+|   tryon-chrome-extension/
 │   ├── popup.html      # Chrome Extension UI
 │   ├── style.css       # Styling for popup
 │   ├── popup.js        # Frontend logic
@@ -58,7 +58,7 @@ TryOn is a Chrome Extension and backend service that allows users to upload a pe
 ### Chrome Extension Setup
 1. Go to `chrome://extensions/` in Chrome.
 2. Enable **Developer Mode** (top-right).
-3. Click **Load unpacked** and select the `tryon-extension` folder.
+3. Click **Load unpacked** and select the `tryon-chrome-extension` folder.
 4. The extension will appear in the toolbar. Pin it for easy access.
 
 ### Usage
