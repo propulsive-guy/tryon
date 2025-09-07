@@ -1,0 +1,29 @@
+{
+  "name": "tryon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/propulsive-guy/tryon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/propulsive-guy/tryon/issues"
+  },
+  "homepage": "https://github.com/propulsive-guy/tryon#readme",
+  "dependencies": {
+    "@google/genai": "^1.17.0",
+    "@google/generative-ai": "^0.24.1",
+    "express": "^5.1.0",
+    "install": "^0.13.0",
+    "multer": "^2.0.2",
+    "npm": "^11.6.0"
+  }
+}

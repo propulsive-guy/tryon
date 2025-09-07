@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Virtual Try-On</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 40px;
+      background: #f8f8f8;
+    }
+    h1 {
+      color: #333;
+    }
+    .upload-box {
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border: 2px dashed #aaa;
+      border-radius: 10px;
+      width: 350px;
+    }
+    input {
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 15px;
+      cursor: pointer;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #result {
+      margin-top: 30px;
+    }
+    #result img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Virtual Try-On</h1>
+  <div class="upload-box">
+    <form id="tryonForm">
+      <label>Upload Person Image:</label><br>
+      <input type="file" id="person" name="person" accept="image/*" required><br><br>
+      <label>Upload Cloth Image:</label><br>
+      <input type="file" id="cloth" name="cloth" accept="image/*" required><br><br>
+      <button type="submit">Generate Try-On</button>
+    </form>
+  </div>
+
+  <div id="result">
+    <h2>Generated Result:</h2>
+    <img id="outputImage" src="" alt="Result will appear here">
+  </div>
+
+  <script>
+    document.getElementById("tryonForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const formData = new FormData();
+      formData.append("person", document.getElementById("person").files[0]);
+      formData.append("cloth", document.getElementById("cloth").files[0]);
+
+      try {
+        const response = await fetch("http://localhost:5000/tryon", {
+          method: "POST",
+          body: formData
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to generate image");
+        }
+
+        const blob = await response.blob();
+        const imageUrl = URL.createObjectURL(blob);
+
+        document.getElementById("outputImage").src = imageUrl;
+      } catch (error) {
+        alert("Error: " + error.message);
+      }
+    });
+  </script>
+</body>
+</html>

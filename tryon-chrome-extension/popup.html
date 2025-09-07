@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>TryOn</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>TryOn</h2>
+  
+  <form id="tryonForm">
+    <div id="personSection">
+      <label>Person Image (Upload once):</label>
+      <input type="file" id="person" name="person" accept="image/*"><br><br>
+      <img id="savedPersonPreview" style="max-width:100%; border:1px solid #ccc; display:none;" />
+    </div>
+
+    <label>Upload Clothing item:</label>
+    <input type="file" id="cloth" name="cloth" accept="image/*" required><br><br>
+
+    <button type="submit">Try 0n!</button>
+  </form>
+
+  <div id="result">
+    <h3>Result:</h3>
+    <img id="outputImage" style="max-width:100%; border:1px solid #ccc;" />
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
