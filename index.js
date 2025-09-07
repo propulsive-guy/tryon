@@ -7,7 +7,7 @@ const app = express();
 const port = 5000;
 
 // Initialize Gemini
-const genAI = new GoogleGenerativeAI("AIzaSyANEObu86QiRhhuoFwdeQfAYkIcuGkEp6g");
+const genAI = new GoogleGenerativeAI("insert your api key here");
 
 // Multer for file uploads
 const upload = multer({ dest: 'uploads/' });
